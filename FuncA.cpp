@@ -1,12 +1,17 @@
 // FuncA.cpp
 #include "FuncA.h"
 
-double FuncA::calculate() {
+double FuncA::calculate(int n) {
     double sum = 0;
-    double x = 1;  // наприклад, x = 1
-    for (int i = 0; i < 3; ++i) {  // лише 3 елементи
-        double term = pow(x, i) / factorial(i);
+    double x = 1;  // наприклад, оберіть x = 1
+    for (int i = 0; i < n; ++i) {
+        double term = pow(x, i) / factorial(i);  // використовуємо x^n / n!
         sum += term;
     }
     return sum;
 }
+
+int factorial(int n) {
+    return (n == 0 || n == 1) ? 1 : n * factorial(n - 1);
+}
+
